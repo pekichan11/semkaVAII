@@ -6,12 +6,47 @@
 }
 
 .logo{
-    height: 100px;
-    width: 100%;
-}
-
-.logo-img {
-    height: 100%;
+    height: 80px;
     width: auto;
 }
 
+.logo-img {
+    height: 90%;
+    width: auto;
+    padding: 10px 0;
+    padding-left: 10px;
+}
+
+.second-navbar {
+    height: 30px;
+    padding-left: 10px;
+}
+
+nav.navbar:nth-child(1) {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+a.nav-right-link {
+    width: 70px;
+    text-decoration: none; 
+    position:  absolute;
+    left: 95%;
+    top : 25px;
+}
+
+a.nav-right-link:hover {
+    text-decoration: underline;
+}
+
+@media ( max-width: 1000px ) {
+    a.nav-right-link {
+        left: 92%;
+    }
+}
+
+@media ( max-width: 600px ) {
+    a.nav-right-link {
+        left: 88%;
+    }
+}
