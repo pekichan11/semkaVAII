@@ -1,0 +1,17 @@
+.alert{
+    margin: 10px;
+}
+.close {
+    float: right;
+}
+
+.logo{
+    height: 100px;
+    width: 100%;
+}
+
+.logo-img {
+    height: 100%;
+    width: auto;
+}
+
