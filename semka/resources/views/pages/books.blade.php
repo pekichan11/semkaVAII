@@ -3,13 +3,15 @@
 @section('title', 'Listing all books')
 
 @section('main')
-    @foreach ($books as $book)
-    <ul>
-        <li>ID: {{ $book['id'] }}</li>
-        <li>Title: {{$book['title']}}</li>
-        <li>Plot: {{$book['plot']}}</li>
-    </ul>
-    @endforeach
+    @if(isset($books))
+        @foreach ($books as $book)
+        <ul>
+            <li>ID: {{ $book['id'] }}</li>
+            <li>Title: {{$book['title']}}</li>
+            <li>Plot: {{$book['plot']}}</li>
+        </ul>
+        @endforeach
+    @endif
 @stop
 
 @section('footer')

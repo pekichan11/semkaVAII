@@ -15,9 +15,13 @@ use App\Http\Controllers\BookController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('master');
 });
 
 Route::get('/book/{id}', [BookController::class, 'show']) ;
 
 Route::get('/book', [BookController::class, 'getAllBooks']);
+
+Route::get('/books', [BookController::class, 'addBook']);
+
+Route::get('/delete/{id}', [BookController::class, 'deleteBook']);

@@ -13,6 +13,4 @@ class Book extends Model
         'title',
         'plot',
     ];
-
-    public $timestamps = false;
 }
