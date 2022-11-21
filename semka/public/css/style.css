@@ -38,10 +38,37 @@ a.nav-right-link {
 a.nav-right-link:hover {
     text-decoration: underline;
 }
+.login-logo {
+    width: auto;
+    height: 150px;
+    margin-bottom: 10px;
+    
+}
+.login-logo-div{
+    margin-top:15px;
+    text-align: center;
+}
+
+.login-page {
+    width: auto;
+    padding: 0 20%;
+}
+
+.btn {
+    margin-top: 5px;
+}
 
 @media ( max-width: 1000px ) {
     a.nav-right-link {
         left: 92%;
+    }
+
+    .login-page {
+        padding:0;
+    }
+
+    .login-logo {
+        height: 100px;
     }
 }
 
