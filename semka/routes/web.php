@@ -2,6 +2,11 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\AuthController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +22,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('master');
 });
+
+Route::get('register', function() {
+    return view('auth.register');
+})->name("register");
+
+Route::post('register', [AuthController::class, 'store']);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
