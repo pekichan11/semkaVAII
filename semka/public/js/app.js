@@ -7,7 +7,7 @@
     })
 
     const email = $('input[name="email"]');
-    email.on('input', function(event) {
+    email.on('input', function() {
         if (email.validity.typeMismatch) {
             email.setCustomValidity("I am expecting an e-mail address!");
             email.reportValidity();
