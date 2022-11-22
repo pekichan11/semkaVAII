@@ -9,13 +9,13 @@
                 <img src="{{ asset('/img/logo.png')}}" alt="logo" class="login-logo">  
             </a>
         </div>
-        <form method="POST" action="" class="form-control">
+        <form method="POST" class="form-control">
             @csrf
             <h2>Register</h2>
 
             <div class="form-group">
-                <label for="username" class="form-label mt-4">Username</label>
-                <input type="text" name="username" id="username" class="form-control" placeholder="Username" value="{{old('username')}}" autofocus="true">
+                <label for="name" class="form-label mt-4">Username</label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="name" value="{{old('name')}}" autofocus="true">
             </div>
             <div class="form-group">
                 <label for="email" class="form-label mt-4">Email address</label>
@@ -26,8 +26,8 @@
                 <input type="password" name="password" id="password" placeholder="Enter password" vlaue="{{old('password')}}" class="form-control">
             </div>
             <div class="form-group">
-                <label for="repeat-password" class="form-label mt-4">Repeat password    </label>
-                <input type="password" name="repeat-password" id="repeat-password" placeholder="Repeat password" vlaue="{{old('password')}}" class="form-control">
+                <label for="password_confirmation" class="form-label mt-4">Confirm password    </label>
+                <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm password" vlaue="{{old('password')}}" class="form-control">
             </div>
             <button type="submit" class="btn btn-primary btn-block mb-4">Register</button>
             <div class="text-center">
