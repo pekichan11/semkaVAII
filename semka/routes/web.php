@@ -34,19 +34,12 @@ Route::get('login', function() {
 
 Route::post('login', [AuthController::class, 'login']);
 
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/book/{id}', [BookController::class, 'show']) ;
     Route::get('/book', [BookController::class, 'getAllBooks']);
-    Route::get('/books', [BookController::class, 'addBook']);
-    Route::get('/delete/{id}', [BookController::class, 'deleteBook']);
+    Route::post('/addBook', [BookController::class, 'addBook']);
+    Route::delete('/delete/{id}', [BookController::class, 'deleteBook']);
+    Route::post('/logout', [UserController::class, 'logout']);
 });
 
 
