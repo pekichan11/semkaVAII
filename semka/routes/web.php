@@ -39,8 +39,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/book', [BookController::class, 'getAllBooks']);
     Route::get('/addBook', [BookController::class, 'addBook']);
     Route::get('/delete/{id}', [BookController::class, 'deleteBook'])->name('delete');
-    Route::post('/logout', [UserController::class, 'logout']);
-    Route::get('/put', [BookController::class, 'edit']);
+    Route::get('/logout', [UserController::class, 'logout']);
+    Route::get('/editBook', [BookController::class, 'editBook']);
 });
 
 

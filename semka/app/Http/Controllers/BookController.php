@@ -47,7 +47,7 @@ class BookController extends Controller
         $book->title = $request->get('title');
         $book->plot = $request->get('plot');
         $book->save();
-        redirect('/book');
+        return view('pages.books')->with('success', 'book was edited');
     } 
 
 }
