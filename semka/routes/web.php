@@ -42,6 +42,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/book', [BookController::class, 'getAllBooks']);
     Route::get('/books', [BookController::class, 'addBook']);
     Route::get('/delete/{id}', [BookController::class, 'deleteBook']);
+    Route::get('logout', [AuthController::class, 'logout'])
+                ->name('logout');
 });
 
 require __DIR__.'/auth.php';
