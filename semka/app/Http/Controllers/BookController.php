@@ -39,7 +39,15 @@ class BookController extends Controller
        $book->save();
        
         $books = Book::all();
-       return view('pages/books', ['books' => $books])->with('success','new book motherfucker');
+       return view('pages.books', ['books' => $books])->with('success','new book');
     }
+
+    public function editBook(Request $request) {
+        $book = Book::findOrFail($request->get('id'));
+        $book->title = $request->get('title');
+        $book->plot = $request->get('plot');
+        $book->save();
+        redirect('/book');
+    } 
 
 }

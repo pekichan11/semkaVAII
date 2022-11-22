@@ -9,7 +9,9 @@
             <li>ID: {{ $book['id'] }}</li>
             <li>Title: {{$book['title']}}</li>
             <li>Plot: {{$book['plot']}}</li>
-            <a href="/delete/"{{ $book['id'] }} class="btn btn-danger">Delete</a>            
+            
+            <a href="/delete/{{ $book['id']}}" class="btn btn-danger"> delete</a>
+                       
         </ul>
         @endforeach
     @endif
