@@ -4,7 +4,7 @@
     </a>
     <div class="float-right">
     @guest
-        <a href="{{ route('login') }}" class="nav-right-link" >Log in</a>
+        <a href="{{ route('register') }}" class="nav-right-link" >Register</a>
     @endguest
     @auth
         <a href="#" class="nav-right-link" >Profil</a>

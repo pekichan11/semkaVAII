@@ -28,6 +28,11 @@ Route::get('register', function() {
 })->name("register");
 
 Route::post('register', [AuthController::class, 'store']);
+Route::get('login', function() {
+    return view('auth.login');
+})->name('login');
+
+Route::post('login', [AuthController::class, 'login']);
 
 
 Route::get('/dashboard', function () {
@@ -42,8 +47,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/book', [BookController::class, 'getAllBooks']);
     Route::get('/books', [BookController::class, 'addBook']);
     Route::get('/delete/{id}', [BookController::class, 'deleteBook']);
-    Route::get('logout', [AuthController::class, 'logout'])
-                ->name('logout');
 });
 
-require __DIR__.'/auth.php';
+
