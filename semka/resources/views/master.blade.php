@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('/css/style.css')}}">
 </head>
-<body class="{{Request::segment(1)?: 'home'}}">
+<body>
     @include('include.flash-message')
 
     @if(Request::segment(1) != 'login' && Request::segment(1) != 'register')
