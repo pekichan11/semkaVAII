@@ -29,15 +29,28 @@ namespace App\Http\Controllers;
             return redirect('/book');
         }
 
-        public function login() {
-
+        public function login(Request $request) {
+            $user = User::where('email', $request->get('email'))->first();
+            
+            if(isset($user)) {
+                
+                if(bcrypt($request->get('password') === $user->password)) {
+                    die(bcrypt($request->get('password') . ' ' . $user->password));
+                    Auth::login($user);
+                    return redirect('/')->with('success', 'log in succesfull '. $user->name .'!');
+                } else  {
+                    return redirect()->back()->with('warning', 'Wrong password');
+                }
+            } else {
+                die("nehehe");
+                return redirect('/login')->with('warning', 'your email is not registered!');
+            }
         }
 
         public function logout(Request $request) {
             Auth::guard('web')->logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();
-             return view('master')->with('success', 'You have beed successfully logou');
-
+            return view('auth.login')->with('success', 'You have beed successfully logou');
         }
     }
