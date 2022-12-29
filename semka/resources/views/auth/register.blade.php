@@ -9,7 +9,7 @@
                 <img src="{{ asset('/img/logo.png')}}" alt="logo" class="login-logo">  
             </a>
         </div>
-        <form method="POST" class="form-control">
+        <form method="POST" class="form-control register-form">
             @csrf
             <h2>Register</h2>
 
