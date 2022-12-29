@@ -13,7 +13,7 @@
                 'email' => ['required', 'unique:users', 'max:255', 'email'],
                 'password' => ['required', 'confirmed', 'max:255'],
             ]);
-            die('nehe');
+            
             
             $user = new User();
             $user->name = $request->name;
