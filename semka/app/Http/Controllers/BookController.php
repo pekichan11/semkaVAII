@@ -29,25 +29,28 @@ class BookController extends Controller
         }
         $book->delete();
         $books = Book::all();
-        return view('pages/books', ['books' => $books])->with('info', 'book has been deleted');
+        return redirect('/');
     }
 
     public function addBook(Request $request) {
-       $book = new Book();
-       $book->title = $request->get('title');
-       $book->plot = $request->get('plot');
-       $book->save();
-       
-        $books = Book::all();
-       return view('pages.books', ['books' => $books])->with('success','new book');
-    }
-
-    public function editBook(Request $request) {
-        $book = Book::findOrFail($request->get('id'));
+        
+        $book = ($request->get('id') ? Book::find($request->get('id')) : new Book());
+        
         $book->title = $request->get('title');
         $book->plot = $request->get('plot');
         $book->save();
-        return view('pages.books')->with('success', 'book was edited');
+        $books = Book::all();
+        if($request->get('id')) {
+            return view('pages.books', ['books' => $books])->with('info','Book was edited');
+        } else {
+            return view('pages.books', ['books' => $books])->with('success','new book');
+        }
+    }
+
+    public function editBook($id) {
+        $book = Book::findOrFail($id);
+        
+        return view('editForm', ['book' => $book]);
     } 
 
 }
