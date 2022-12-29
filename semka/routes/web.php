@@ -19,9 +19,7 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/', function () {
-    return view('master');
-});
+
 
 Route::get('register', function() {
     return view('auth.register');
@@ -36,11 +34,14 @@ Route::post('login', [AuthController::class, 'login']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/book/{id}', [BookController::class, 'show']) ;
-    Route::get('/book', [BookController::class, 'getAllBooks']);
-    Route::get('/addBook', [BookController::class, 'addBook']);
+    Route::get('/', [BookController::class, 'getAllBooks']);
+    Route::post('/addBook', [BookController::class, 'addBook']);
     Route::get('/delete/{id}', [BookController::class, 'deleteBook'])->name('delete');
-    Route::get('/logout', [UserController::class, 'logout']);
-    Route::get('/editBook', [BookController::class, 'editBook']);
+    Route::get('/logout', [AuthController::class, 'logout']);
+    Route::get('/editbook/{id}', [BookController::class, 'editBook']);
+    Route::get('add', function() {
+        return view('editForm');
+    });
 });
 
 
