@@ -32,9 +32,13 @@ Route::get('login', function() {
 
 Route::post('login', [AuthController::class, 'login']);
 
+Route::get('/', function() {
+    return view('pages.welcome');
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/book/{id}', [BookController::class, 'show']) ;
-    Route::get('/', [BookController::class, 'getAllBooks']);
+    Route::get('/book', [BookController::class, 'getAllBooks']);
     Route::post('/addBook', [BookController::class, 'addBook']);
     Route::get('/delete/{id}', [BookController::class, 'deleteBook'])->name('delete');
     Route::get('/logout', [AuthController::class, 'logout']);
