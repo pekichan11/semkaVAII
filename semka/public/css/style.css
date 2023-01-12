@@ -27,12 +27,15 @@ nav.navbar:nth-child(1) {
     padding-bottom: 0px;
 }
 
+.float-right {
+    position: absolute;
+    right: 15px;
+}
 a.nav-right-link {
     width: 70px;
+    margin-right: 15px;
     text-decoration: none; 
-    position:  absolute;
-    left: 95%;
-    top : 25px;
+    
 }
 
 a.nav-right-link:hover {
