@@ -9,7 +9,7 @@
     @endguest
     @auth
         <a href="#" class="nav-right-link" >Profil</a>
-        <a href="#" class="nav-right-link" >Logout</a>
+        <a href="{{ route('logout') }}" class="nav-right-link" >Logout</a>
     @endauth
     </div>
    
