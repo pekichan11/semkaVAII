@@ -41,7 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/book', [BookController::class, 'getAllBooks']);
     Route::post('/addBook', [BookController::class, 'addBook']);
     Route::get('/delete/{id}', [BookController::class, 'deleteBook'])->name('delete');
-    Route::get('/logout', [AuthController::class, 'logout']);
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/editbook/{id}', [BookController::class, 'editBook']);
     Route::get('add', function() {
         return view('editForm');
