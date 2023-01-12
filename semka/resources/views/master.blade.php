@@ -7,6 +7,7 @@
     <title>@yield('title', 'kniznica')</title>
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('/css/style.css')}}">
+    <link rel="icon"  href="{{ asset('favicon.ico')}}">
 </head>
 <body>
     @include('include.flash-message')
