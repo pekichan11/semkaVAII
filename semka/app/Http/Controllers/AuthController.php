@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
     use Illuminate\Support\Facades\Auth;
     use App\Models\User;
     use Illuminate\Validation\ValidationException;
+    use Illuminate\Support\Facades\Hash;
 
     class AuthController extends Controller {
         public function store(Request $request) {
@@ -33,16 +34,14 @@ namespace App\Http\Controllers;
             $user = User::where('email', $request->get('email'))->first();
             
             if(isset($user)) {
-                
-                if(bcrypt($request->get('password') === $user->password)) {
-                    die(bcrypt($request->get('password') . ' ' . $user->password));
+                if(Hash::check($request->get('password'), $user->password)) {
                     Auth::login($user);
                     return redirect('/')->with('success', 'log in succesfull '. $user->name .'!');
                 } else  {
                     return redirect()->back()->with('warning', 'Wrong password');
                 }
             } else {
-                die("nehehe");
+                
                 return redirect('/login')->with('warning', 'your email is not registered!');
             }
         }
