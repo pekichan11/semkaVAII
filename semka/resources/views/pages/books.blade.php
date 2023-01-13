@@ -7,14 +7,9 @@
 
     @if(isset($books))
         @foreach ($books as $book)
-        <ul>
-            <li>ID: {{ $book['id'] }}</li>
-            <li>Title: {{$book['title']}}</li>
-            <li>Plot: {{$book['plot']}}</li>
-            
-            <a href="/delete/{{ $book['id'] }}" class="btn btn-danger"> delete</a>
-            <a href="/editbook/{{ $book['id'] }}" class="btn btn-info"> edit</a>           
-        </ul>
+        
+            @include('components.bookView')
+        
         @endforeach
     @endif
 
