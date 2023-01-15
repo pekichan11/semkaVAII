@@ -16,6 +16,6 @@
         echo $text;
         
     ?></p>
-    <a href="#" class="btn btn-info">viac</a>
-    <a href="#" class="btn btn-success">objednaj</a>
+    <a href="/book/{{ $book['id'] }}" class="btn btn-info">viac</a>
+    <a href="#" class="btn btn-success">pozicaj</a>
 </div>
