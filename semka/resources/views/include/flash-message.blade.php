@@ -1,8 +1,11 @@
 @if(session('success')) 
-<div class="alert alert-success alert-block">
-    <strong>{{ session('success') }}</strong>
-    <button type="button" class="close" data-dismiss="alert">×</button>
-</div>
+    <div class="alert alert-success alert-block">
+        <strong>{{ session('success') }}</strong>
+        <button type="button" class="close" data-dismiss="alert">×</button>
+    </div>
+    @php
+        session()->forget('success');
+    @endphp
 @endif
 
 @if(session('info')) 
@@ -10,6 +13,9 @@
     <strong>{{ session('info') }}</strong>
     <button type="button" class="close" data-dismiss="alert">×</button>
 </div>
+@php
+    session()->forget('info');
+@endphp
 @endif
 
 @if(session('warning')) 
@@ -17,4 +23,8 @@
     <strong>{{ session('warning') }}</strong>
     <button type="button" class="close" data-dismiss="alert">×</button>
 </div>
+@php
+    session()->forget('warning');
+@endphp
 @endif
+
