@@ -61,6 +61,26 @@ a.nav-right-link:hover {
     margin-top: 5px;
 }
 
+.bookView {
+    height: auto;
+    display: inline-block;
+    margin-top: 10px;
+    width: 200px;
+    text-align: center;
+}
+.bookView h3 {
+    width: 200px;
+}
+
+.bookView p {
+    width: 200px;
+}
+
+.bookView .img {
+    height: 100%;
+    
+}
+
 @media ( max-width: 1000px ) {
     a.nav-right-link {
         left: 92%;
