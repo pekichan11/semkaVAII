@@ -1,12 +1,10 @@
-<?php 
-    namespace App\Http\Controllers;
+<?php
 
-    use Illuminate\Http\Request;
-    use Illuminate\Support\Facades\Auth;
-    use App\Models\User;
+namespace App\Http\Controllers;
 
-    class UserController extends Controller
-    {
-       //
-    }
-?>
+use Illuminate\Http\Request;
+
+class UserController extends Controller
+{
+    //
+}
