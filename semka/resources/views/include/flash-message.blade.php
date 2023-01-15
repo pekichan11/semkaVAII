@@ -1,20 +1,20 @@
-@if(isset($success)) 
+@if(session('success')) 
 <div class="alert alert-success alert-block">
-    <strong>{{ $success }}</strong>
+    <strong>{{ session('success') }}</strong>
     <button type="button" class="close" data-dismiss="alert">×</button>
 </div>
 @endif
 
-@if(isset($info)) 
+@if(session('info')) 
 <div class="alert alert-info alert-block">
-    <strong>{{ $info }}</strong>
+    <strong>{{ session('info') }}</strong>
     <button type="button" class="close" data-dismiss="alert">×</button>
 </div>
 @endif
 
-@if(isset($warning)) 
+@if(session('warning')) 
 <div class="alert alert-danger alert-block">
-    <strong>{{ $warning }}</strong>
+    <strong>{{ session('warning') }}</strong>
     <button type="button" class="close" data-dismiss="alert">×</button>
 </div>
 @endif
