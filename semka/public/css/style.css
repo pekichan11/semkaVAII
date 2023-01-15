@@ -81,6 +81,16 @@ a.nav-right-link:hover {
     
 }
 
+.welcome-page h1 {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.welcome-page p {
+    margin: 0 10%;
+}
+
+
 @media ( max-width: 1000px ) {
     a.nav-right-link {
         left: 92%;
