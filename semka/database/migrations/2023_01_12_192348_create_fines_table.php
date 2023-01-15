@@ -16,6 +16,7 @@ return new class extends Migration
     {
         Schema::create('fines', function (Blueprint $table) {
             $table->id();
+            $table->double('value', 7, 2);
             $table->foreignIdFor(User::class);
             $table->timestamps();
         });
