@@ -17,7 +17,7 @@ namespace App\Http\Controllers;
                     'password_confirmation' => ['same:password', 'required']
                 ]);
             } catch(ValidationException $e) {
-                return view('auth.register')->with('warning', $e->getMessage());
+                return view('pages.auth.register')->with('warning', $e->getMessage());
             }
 
             $user = new User();
@@ -50,6 +50,6 @@ namespace App\Http\Controllers;
             Auth::guard('web')->logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();
-            return view('auth.login')->with('success', 'You have beed successfully logou');
+            return redirect('/');
         }
     }
