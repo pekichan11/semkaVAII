@@ -13,4 +13,9 @@ class Book extends Model
         'title',
         'plot',
     ];
+
+    public function setTitleAttribute($title)
+    {
+        $this->attributes['title'] = ucfirst($title);
+    }
 }
