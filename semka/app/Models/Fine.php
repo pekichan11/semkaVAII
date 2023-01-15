@@ -15,6 +15,6 @@ class Fine extends Model
     ];
 
     public function user() {
-        return $this->hasOne(Used::class);
+        return $this->hasOne(User::class);
     }
 }
