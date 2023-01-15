@@ -15,7 +15,7 @@
 
             <div class="form-group">
                 <label for="name" class="form-label mt-4">Username</label>
-                <input type="text" name="name" id="name" class="form-control" placeholder="name" value="{{old('name')}}" autofocus="true">
+                <input type="text" name="name" id="name" class="form-control" placeholder="name" value="{{old('name')}}" >
             </div>
             <div class="form-group">
                 <label for="email" class="form-label mt-4">Email address</label>
