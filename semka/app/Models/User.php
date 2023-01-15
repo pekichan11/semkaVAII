@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Loan;
 
 class User extends Authenticatable
 {
@@ -21,6 +22,9 @@ class User extends Authenticatable
         'password',
     ];
     
+    public function loan() {
+        return $this->hasMan(Loan::class);
+    }
 
     public function setPasswordAttribute($password) {
         $this->attributes['password'] = bcrypt($password);
