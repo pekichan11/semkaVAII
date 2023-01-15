@@ -21,16 +21,16 @@ use App\Http\Controllers\AuthController;
 
 
 
-Route::get('register', function() {
-    return view('auth.register');
+Route::get('/register', function() {
+    return view('pages.auth.register');
 })->name("register");
 
-Route::post('register', [AuthController::class, 'store']);
-Route::get('login', function() {
-    return view('auth.login');
+Route::post('/register', [AuthController::class, 'store']);
+Route::get('/login', function() {
+    return view('pages.auth.login');
 })->name('login');
 
-Route::post('login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/', function() {
     return view('pages.welcome');
@@ -43,7 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/delete/{id}', [BookController::class, 'deleteBook'])->name('delete');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/editbook/{id}', [BookController::class, 'editBook']);
-    Route::get('add', function() {
+    Route::get('/add', function() {
         return view('editForm');
     });
 });
