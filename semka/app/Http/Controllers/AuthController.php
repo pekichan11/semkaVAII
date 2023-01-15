@@ -17,7 +17,8 @@ namespace App\Http\Controllers;
                     'password_confirmation' => ['same:password', 'required']
                 ]);
             } catch(ValidationException $e) {
-                return view('pages.auth.register')->with('warning', $e->getMessage());
+                session(['warnings' => $e->getMessage()]);
+                return view('pages.auth.register');
             }
 
             $user = new User();
@@ -27,6 +28,7 @@ namespace App\Http\Controllers;
             $user->save();
             
             Auth::login($user);
+            session(['success' => 'Your account has been created!']);
             return redirect('/book');
         }
 
@@ -41,8 +43,8 @@ namespace App\Http\Controllers;
                     return redirect()->back()->with('warning', 'Wrong password');
                 }
             } else {
-                
-                return redirect('/login')->with('warning', 'your email is not registered!');
+                session(['warning' => 'warning', 'your email is not registered!']);
+                return redirect('/login');
             }
         }
 
@@ -50,6 +52,7 @@ namespace App\Http\Controllers;
             Auth::guard('web')->logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();
+            session(['success' => 'You have been logged out']);
             return redirect('/');
         }
     }
