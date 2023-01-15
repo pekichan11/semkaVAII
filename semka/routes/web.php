@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/editbook/{id}', [BookController::class, 'editBook']);
     Route::get('/add', function() {
-        return view('editForm');
+        return view('pages.editForm');
     });
 });
 
