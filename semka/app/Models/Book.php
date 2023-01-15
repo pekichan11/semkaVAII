@@ -13,6 +13,7 @@ class Book extends Model
     protected $fillable = [
         'title',
         'plot',
+        'img'
     ];
 
     public function autor() {
