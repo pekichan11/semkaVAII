@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LoanController;
+
 
 
 
@@ -46,6 +48,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/add', function() {
         return view('pages.editForm');
     });
+    Route::get('/loan', [LoanController::class, 'getAll']);
 });
 
 
