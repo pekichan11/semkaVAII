@@ -25,10 +25,12 @@ class BookController extends Controller
             $book = Book::findOrFail($id);
         } catch(ModelNotFoundException $e) {
             $books = Book::all();
-            return view('pages/books', ['books' => $books])->with('warning', 'Something went wrong');
+            session(['warning', 'Something went wrong!']);
+            return view('pages/books', ['books' => $books]);
         }
         $book->delete();
         $books = Book::all();
+        session(['success' => 'Book deleted!']);
         return redirect('/');
     }
 
@@ -41,15 +43,16 @@ class BookController extends Controller
         $book->save();
         $books = Book::all();
         if($request->get('id')) {
-            return view('pages.books', ['books' => $books])->with('info','Book was edited');
+            session(['info' => 'Book was edited']);
+            return view('pages.books', ['books' => $books]);
         } else {
-            return view('pages.books', ['books' => $books])->with('success','new book');
+            session(['success' => 'new book']);
+            return view('pages.books', ['books' => $books]);
         }
     }
 
     public function editBook($id) {
         $book = Book::findOrFail($id);
-        
         return view('editForm', ['book' => $book]);
     } 
 
