@@ -8,7 +8,7 @@
         <a href="{{ route('login') }}" class="nav-right-link">Login</a>
     @endguest
     @auth
-        <a href="#" class="nav-right-link" >Profil</a>
+        <a href="/profile" class="nav-right-link" >Profil</a>
         <a href="{{ route('logout') }}" class="nav-right-link" >Logout</a>
     @endauth
     </div>
@@ -19,7 +19,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark second-navbar">
         <ul class="navbar-nav me-auto">
             <li class="nav-item">
-                <a class="nav-link" href=" {{ route("welcome") }}">Domov</a>
+                <a class="nav-link" href=" {{ route("welcome") }}">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/book">Knihy</a>
