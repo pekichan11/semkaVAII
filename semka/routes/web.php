@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LoanController;
+use App\Http\Controllers\CommentController;
+
 
 
 
@@ -34,6 +35,7 @@ Route::get('/login', function() {
 
 Route::post('/login', [AuthController::class, 'login']);
 
+
 Route::get('/', function() {
     return view('pages.welcome');
 })->name("welcome");
@@ -49,6 +51,8 @@ Route::middleware('auth')->group(function () {
         return view('pages.editForm');
     });
     Route::get('/loan', [LoanController::class, 'getAll']);
+    Route::post('/newcomment', [CommentController::class, 'store'])->name('comment');
+
 });
 
 
