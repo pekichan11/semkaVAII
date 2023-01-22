@@ -8,21 +8,23 @@ use App\Models\Comment;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class BookController extends Controller
-{
+{   
+    //select book by id and all her comments
     public function show($id) {
         $comments = Comment::where('book_id', $id)->get();
 
         $book = Book::findOrFail($id);
-        return view('pages.oneBook',['book' => $book, 'comments' => $comments]);
-        return response()->json([$comments, $book]);
+        return view('pages.bookInfo',['book' => $book, 'comments' => $comments]);
     }
 
+    //select all books
     public function getAllBooks() {
         $books = Book::all();
         
         return view('pages/books', ['books' => $books]);
     }
 
+    //delete book
     public function deleteBook($id) {
         
         try {
@@ -38,6 +40,7 @@ class BookController extends Controller
         return redirect('/');
     }
 
+    //add a book
     public function addBook(Request $request) {
         
         $book = ($request->get('id') ? Book::find($request->get('id')) : new Book());
@@ -55,9 +58,10 @@ class BookController extends Controller
         }
     }
 
+    //edit book
     public function editBook($id) {
         $book = Book::findOrFail($id);
-        return view('editForm', ['book' => $book]);
+        return view('pages.editForm', ['book' => $book]);
     } 
 
 }
