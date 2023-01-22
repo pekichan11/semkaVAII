@@ -19,7 +19,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->foreignIdFor(User::class);
             $table->foreignIdFor(Book::class);
-            $table->date('created_at');
+            $table->timestamps();
         });
     }
 
