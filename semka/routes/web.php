@@ -51,7 +51,7 @@ Route::middleware('auth')->group(function () {
         return view('pages.editForm');
     });
     Route::get('/loan', [LoanController::class, 'getAll']);
-    Route::post('/newcomment', [CommentController::class, 'store'])->name('comment');
+    Route::post('/addComment', [CommentController::class, 'store'])->name('comment');
 
 });
 
