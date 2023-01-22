@@ -1,9 +1,6 @@
-<?php 
-    $random = rand(1, 300);
-?>
 <div class="bookView">
     <div class="img">
-        <img src="https://picsum.photos/id/<?= $random ?>/100/150" alt="">
+        <img src="{{ $book['img'] }}" alt="">
     </div>
     <h3>{{ $book['title'] }}</h3>
     <p><?php 
