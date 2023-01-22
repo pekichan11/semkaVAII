@@ -5,6 +5,7 @@
 
 .book-info {
     display: flex;
+    margin-top: 10px;
 }
 
 .book-info-img{
