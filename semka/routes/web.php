@@ -50,7 +50,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/add', function() {
         return view('pages.editForm');
     });
-    Route::get('/loan', [LoanController::class, 'getAll']);
+    Route::get('/pozicky', [LoanController::class, 'getAll']);
     Route::post('/addComment', [CommentController::class, 'store'])->name('comment');
 
 });
