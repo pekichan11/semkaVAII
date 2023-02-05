@@ -28,6 +28,11 @@
                 @endif
             >
         </div>
+
+        <div class="form-group">
+            <label for="image">Image</label>
+            <input type="file" id="image" class="form-control" required name="image">
+        </div>
         <button type="submit" class="btn btn-primary mb-4">submit</button>
     </form>
 @stop
