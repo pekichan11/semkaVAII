@@ -5,7 +5,7 @@
 @section('title', 'Book forse')
 
 @section('main')
-    <form method="POST" action="/addBook">
+    <form method="POST" action="/addBook" enctype="multipart/form-data" files="true">
         @csrf
         @if (isset($book))
             <input type="hidden" value="{{ $book['id'] }}" name="id">
@@ -29,7 +29,7 @@
             >
         </div>
 
-        <div class="form-group">
+        <div class="form-group ">
             <label for="image">Image</label>
             <input type="file" id="image" class="form-control" required name="image">
         </div>
