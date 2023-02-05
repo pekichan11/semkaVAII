@@ -3,6 +3,14 @@
     margin: 10px;
 }
 
+.welcome-img-right {
+    float:right;
+}
+
+.welcome-img-left {
+    float:left;
+}
+
 .book-info {
     display: flex;
     margin-top: 10px;
@@ -43,6 +51,19 @@
 
 .second-navbar {
     height: 30px;
+    padding-left: 10px;
+}
+
+.navbarik-link {
+    text-decoration: none;
+    
+}
+
+.navbarik-item {
+    list-style: none;
+    height: 30px;
+    display: inline;
+    margin-bottom: 14px;
     padding-left: 10px;
 }
 
