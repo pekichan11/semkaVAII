@@ -16,4 +16,12 @@
           }
 
      });
+
+    const link = $('.next-comment-link');
+    link.on('click',(e) => { 
+      e.preventDefault();
+      fetch('/comments/' + link.value)
+        .then((res) => res.json());
+        
+    })
 }(jQuery))
