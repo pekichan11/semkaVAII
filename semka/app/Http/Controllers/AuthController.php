@@ -43,7 +43,7 @@ namespace App\Http\Controllers;
                     return redirect()->back()->with('warning', 'Wrong password');
                 }
             } else {
-                session(['warning' => 'warning', 'your email is not registered!']);
+                session(['warning' => 'Your email is not registered!']);
                 return redirect('/login');
             }
         }
