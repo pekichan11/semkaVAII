@@ -20,19 +20,14 @@
                 @for ($i = 0; $i < 4; $i++)
                     @if ($i % 2 == 0)
                     <tr class="table-active">
-                        <th scope="row">{{ $i + 1 }}</th>
-                        <td>Column content</td>
-                        <td>Column content</td>
-                        <td>Column content</td>
-                    </tr>
                     @else
                     <tr>
+                    @endif
                         <th scope="row">{{ $i + 1 }}</th>
                         <td>Column content</td>
                         <td>Column content</td>
                         <td>Column content</td>
                     </tr>
-                    @endif
                 @endfor
             </tbody>
         </table>
