@@ -1,6 +1,6 @@
 <div class="bookView">
     <div class="img">
-        <img src="{{ $book['img'] }}" alt="">
+        <img src="{{ asset('img/books')."/".$book['img'] }}" alt="">
     </div>
     <h3>{{ $book['title'] }}</h3>
     <p><?php 
