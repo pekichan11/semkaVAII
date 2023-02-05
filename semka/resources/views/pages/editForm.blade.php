@@ -29,7 +29,7 @@
             >
         </div>
 
-        <div class="form-group ">
+        <div class="form-group">
             <label for="image">Image</label>
             <input type="file" id="image" class="form-control" required name="image">
         </div>
