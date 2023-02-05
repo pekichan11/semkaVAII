@@ -112,6 +112,7 @@ a.nav-right-link:hover {
     margin-top: 10px;
     width: 200px;
     text-align: center;
+    margin-right: 20px;
 }
 .bookView h3 {
     width: 200px;
@@ -121,9 +122,13 @@ a.nav-right-link:hover {
     width: 200px;
 }
 
-.bookView .img {
-    height: 100%;
-    
+.bookView .img img{
+    height: 300px;
+    width: 200px;
+}
+
+.book-info-content p {
+    width: 40%;
 }
 
 .welcome-page h1 {
