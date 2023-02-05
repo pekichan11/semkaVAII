@@ -47,6 +47,7 @@ class BookController extends Controller
         
         $book->title = $request->get('title');
         $book->plot = $request->get('plot');
+        $book->img = $request->get('image');
         $book->save();
         $books = Book::all();
         if($request->get('id')) {
