@@ -24,4 +24,50 @@
         .then((res) => res.json());
         
     })
+
+    let shadow = document.createElement('div');
+    shadow.className = 'shadow';
+    $('body').append(shadow);
+    let obrazok = document.createElement('img');
+    
+    obrazok.className = 'pop-up';
+    
+
+    const bookLink = $('.link-book-img');
+    bookLink.on('click',(e) => {
+      e.preventDefault();
+      shadow.style.display = 'block';
+      console.log(e.target.currentSrc);
+      obrazok.src = e.target.currentSrc;
+      $('body').append(obrazok);
+    });
+
+    $('.shadow').on('click',() => {
+      shadow.style.display = 'none';
+      obrazok.remove();
+    });
+
+    //token for ajax forms
+    
+
+    $("#comment").on('click', (e) => {
+      e.preventDefault();
+      const data = {
+        user_id: $('input[name="user_id"]').val(),
+        _token: $('input[name="_token"]').val(),
+        book_id: $('input[name="book_id"]').val(),
+        text: $('input[name="text"]').val(),
+      };
+      $.ajax({
+        url: 'http://localhost:8000/addComment',
+        method: 'POST',
+        data: data,
+        success: async function (res) {
+
+          console.log(res);
+        },
+      });
+      
+      
+    });
 }(jQuery))
