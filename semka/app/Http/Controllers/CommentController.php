@@ -18,6 +18,15 @@ class CommentController extends Controller
     }
 
     public function getCommetsByBookId($id) {
-        return Comment::where('book_id', $id)->get();
+        return Comment::where('book_id', $id)
+                        ->orderBy('updated_at', 'desc')
+                        ->get();
+    }
+
+    public function getThreeComments($id, $page) {
+        return $comments = Comment::where('book_id', $id)
+                            ->orderBy('updated_at', 'desc')
+                            ->limit(3 * $page)
+                            ->get();
     }
 }
