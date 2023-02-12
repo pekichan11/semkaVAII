@@ -16,7 +16,7 @@
 @endsection   
 
 @section('footer')
-    
+    <div class="shadow"></div>
 @endsection
 
 
