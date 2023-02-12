@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Autor;
 
 return new class extends Migration
 {
@@ -17,7 +18,8 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('title', 30);
             $table->string('plot', 300);
-            $table->string('img', 150);
+            $table->string('img', 300);
+            $table->foreignIdFor(Autor::class);
             $table->timestamps();
         });
     }
