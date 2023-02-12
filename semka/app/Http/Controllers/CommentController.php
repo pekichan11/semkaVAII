@@ -14,7 +14,7 @@ class CommentController extends Controller
         $comment->user_id = $request->get('user_id');
         $comment->book_id = $request->get('book_id');
         $comment->save();
-        return redirect()->back();
+        return $comment;
     }
 
     public function getCommetsByBookId($id) {
