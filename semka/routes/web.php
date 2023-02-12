@@ -52,7 +52,7 @@ Route::middleware('auth')->group(function () {
     });
     Route::get('/pozicky', [LoanController::class, 'getAll']);
     Route::post('/addComment', [CommentController::class, 'store'])->name('comment');
-
+    Route::get('/nehe/{id}/{page}', [CommentController::class, 'getThreeComments']);
 });
 
 
