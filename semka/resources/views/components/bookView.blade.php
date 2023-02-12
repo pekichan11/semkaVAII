@@ -11,7 +11,6 @@
             $text = $book['plot'];
         }
         echo $text;
-        
     ?></p>
     <a href="/book/{{ $book['id'] }}" class="btn btn-info">viac</a>
     <a href="#" class="btn btn-success">pozicaj</a>
