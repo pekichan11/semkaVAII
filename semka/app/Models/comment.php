@@ -13,6 +13,7 @@ class Comment extends Model
 
     protected $fillable = [
         'text',
+        'user_name'
     ];
 
     public function user() {
