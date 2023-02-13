@@ -1,5 +1,8 @@
 <?php 
     use App\Models\Book;
+    use Illuminate\Support\Facades\Auth;
+
+    $user = Auth::user();
 ?>
 
 @extends('master')
@@ -14,13 +17,13 @@
         
         <table class="table table-hover">
             <thead>
-              <tr>
+            <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nazov knihy</th>
                 <th scope="col">Datum pozicania</th>
                 <th scope="col">Datunm vratenia</th>
                 <th scope="col">vratenie</th>
-              </tr>
+            </tr>
             </thead>
             <tbody>
                 @for ($i = 0; $i < count($loans); $i++) 
@@ -42,6 +45,7 @@
     @else
         <h2>Prazdna historia</h2>
     @endif
+
 @endsection
     
 @section('footer')
