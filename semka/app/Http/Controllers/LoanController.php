@@ -22,4 +22,11 @@ class LoanController extends Controller
         $loan->save();
         return redirect('/book');
     }
+    public function getAllForAdmin() {
+        if(Auth::user()->role !== 'admin') {
+            return abort(403);
+        }
+        $loans = Loan::All();
+        return view('pages.pozicane', ['loans' => $loans]);
+    }
 }
