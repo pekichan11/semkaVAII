@@ -1,5 +1,7 @@
 @extends('master')
-
+<?php 
+    use Illuminate\Support\Facades\Auth;
+?>
 @section('title', $book->title)
 
 @section('main')
@@ -16,11 +18,26 @@
             <p>{{ $book['plot'] }}</p>
         </div>
     </div>
-    <form method="POST" action="{{route('pozicaj')}}">
-        @csrf
-        <input type="hidden" name = "book_id" value={{ $book['id'] }}>
-        <input type="submit" class="btn btn-primary pozicaj " value="pozicaj">
-    </form>
+    <div class="forms">
+        @if (Auth::user()->role == 'admin')
+            <form method="POST" id="delete-book" action="{{route('vymaz')}}">
+                @csrf
+                <input type="hidden"  name = "book_id" value={{ $book['id'] }}>
+                <input type="submit" class="btn btn-danger" value="vymaz">
+            </form>
+            <form method="GET" action="/editbook/{{ $book['id'] }}">
+                @csrf
+                <input type="hidden" name = "book_id" value={{ $book['id'] }}>
+                <input type="submit" class="btn btn-info" value="edit">
+            </form>
+        @else 
+            <form method="POST" action="{{route('pozicaj')}}">
+                @csrf
+                <input type="hidden" name = "book_id" value={{ $book['id'] }}>
+                <input type="submit" class="btn btn-primary pozicaj " value="pozicaj">
+            </form>
+        @endif
+    </div>
     @include('components\coments')
 @endsection   
 
