@@ -10,11 +10,15 @@
 
 @section('main')
     <form method="POST" action="/addBook" enctype="multipart/form-data" files="true">
+        
         @csrf
         @if (isset($book))
+            <h2>Edit book</h2> 
             <input type="hidden" value="{{ $book['id'] }}" name="id">
+        @else
+            <h2>Add book</h2>
         @endif
-        <h2>Edit book</h2>
+
         <div class="form-group">
             <label for="title" class="form-label mt-4">Title</label>
             <input type="text" name="title" id="title" class="form-control" placeholder="title" 
@@ -26,17 +30,20 @@
 
         <div class="form-group">
             <label for="plot" class="form-label mt-4">Plot</label>
-            <textarea type="text" rows="5" cols="100" name="plot" id="plot" class="form-control" placeholder="plot" 
-                @if (isset($book)) 
-                    value="{{$book['plot'] }}"
-                @endif
-            ></textarea>
+            <textarea type="text" rows="5" cols="100" name="plot" id="plot" class="form-control" placeholder="plot" >
+            @if (isset($book)) 
+                {{$book['plot']}}
+            @endif
+            </textarea>
         </div>
 
         <div class="form-group">
             <label for="autor" class="form-label mt-4">Autor</label>
             <select name="autor" id="autor">
-                    <option value="null"></option>
+                @if (isset($book)) 
+                    <option value="{{$book['autor_id']}}">original</option>
+                @endif
+                <option value="0">nobody</option>
                 @foreach ($autors as $autor)
                     <option value="{{$autor['id']}}">{{$autor['name']}}</option>
                 @endforeach
@@ -45,7 +52,10 @@
 
         <div class="form-group">
             <label for="image">Image</label>
-            <input type="file" id="image" class="form-control" required name="image">
+            <input type="file" id="image" class="form-control" 
+            @if (!isset($book)) 
+                required
+            @endif  name="image">
         </div>
         <button type="submit" class="btn btn-primary mb-4">submit</button>
     </form>
