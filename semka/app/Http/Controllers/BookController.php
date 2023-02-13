@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Models\Comment;
+use App\Models\Loan;
+
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class BookController extends Controller
@@ -25,19 +27,20 @@ class BookController extends Controller
     }
 
     //delete book
-    public function deleteBook($id) {
-        
+    public function deleteBook(Request $request) {
         try {
-            $book = Book::findOrFail($id);
+            $book = Book::findOrFail($request->get('book_id'));
         } catch(ModelNotFoundException $e) {
-            $books = Book::all();
             session(['warning', 'Something went wrong!']);
-            return view('pages/books', ['books' => $books]);
+            return redirect('/book');
+        }
+        $loans = Loan::where('book_id', $book->id)->get;
+        foreach ($loans as $loan) {
+            $loan->delete();
         }
         $book->delete();
-        $books = Book::all();
         session(['success' => 'Book deleted!']);
-        return redirect('/');
+        return redirect('/book');
     }
 
     //add a book
@@ -48,10 +51,12 @@ class BookController extends Controller
         $book->title = $request->get('title');
         $book->plot = $request->get('plot');
         $book->autor_id = $request->get('autor');
-        $file = $request->file('image');
-        $filename = date('YmdHi').$file->getClientOriginalName();
-        $file->move(public_path('img/books'), $filename);
-        $book->img = $filename;
+        if($request->file('image')) {
+            $file = $request->file('image');
+            $filename = date('YmdHi').$file->getClientOriginalName();
+            $file->move(public_path('img/books'), $filename);
+            $book->img = $filename;
+        }
         $book->save();
         if($request->get('id')) {
             session(['info' => 'Book was edited']);
