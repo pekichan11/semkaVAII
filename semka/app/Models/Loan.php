@@ -9,6 +9,9 @@ class Loan extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'returned'
+    ];
     
 
     public function user() {
