@@ -12,6 +12,11 @@
             <p>{{ $book['plot'] }}</p>
         </div>
     </div>
+    <form method="POST" action="{{route('pozicaj')}}">
+        @csrf
+        <input type="hidden" name = "book_id" value={{ $book['id'] }}>
+        <input type="submit" class="btn btn-primary pozicaj " value="pozicaj">
+    </form>
     @include('components\coments')
 @endsection   
 
