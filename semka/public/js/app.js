@@ -1,4 +1,7 @@
 (function($) {
+    $('#delete-comment').submit(() => {
+      return confirm('Are you sure you want to delete this comment');
+    });
     const smallX = $('.close');
     smallX.on('click', function(event) {
         event.preventDefault();
@@ -102,7 +105,6 @@
         console.log(err);
       } 
     });
-
 
     function createComment(data) {
       const stringDate = String(data.date.getDate()).padStart(2, '0') + '.' +
