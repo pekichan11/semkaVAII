@@ -34,7 +34,7 @@
                     <a class="nav-link" href="/pozicky">Požičané</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/pokutky">Pokuty</a>
+                    <a class="nav-link" href="/pokuty">Pokuty</a>
                 </li>
             </ul>
           </div>
