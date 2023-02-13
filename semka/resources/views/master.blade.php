@@ -26,7 +26,7 @@
     </main>
     <footer>
         <div class="container">
-            @yield('footer')
+            @include('include.footer')
         </div>
     </footer>
     <script src="{{ asset('/js/app.js')}}"></script>
