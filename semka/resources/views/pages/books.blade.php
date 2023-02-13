@@ -3,6 +3,7 @@
 @section('title', 'Listing all books')
 
 @section('main')
+    <h1 class="zoznam-knih">Zoznam knih</h1>
     @if(isset($books))
         @foreach ($books as $book)
                     @include('components.bookView')
