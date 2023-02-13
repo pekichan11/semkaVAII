@@ -8,6 +8,14 @@
     z-index: 3;
     display: none;
 }
+/* */
+/* comment navigarion */
+/**/
+.comment-pages li {
+    display: inline;
+}
+
+
 
 .pop-up {
     position: fixed;
@@ -138,7 +146,8 @@ a.nav-right-link:hover {
     margin-top: 10px;
     width: 20%;
     text-align: center;
-    margin-right: 20px;
+    margin-right: 10px;
+    margin-left: 20px;
 }
 .bookView h3 {
     width: 200px;
@@ -154,7 +163,8 @@ a.nav-right-link:hover {
 }
 
 .bookView .img {
-    width: 300px;
+    width: 200px;
+    height: 300px;
 }
 
 .book-info-content p {
@@ -171,11 +181,25 @@ a.nav-right-link:hover {
     text-align: justify;
 }
 
+.zoznam-knih {
+    text-align: center;
+}
+
+@media ( max-width: 1300px ) {
+    .bookView {
+        width: 25%;
+    }
+}
+
 @media ( max-width: 1000px ) {
     a.nav-right-link {
         left: 92%;
     }
 
+    .bookView {
+        width: 33%;
+        margin-left: 5%;
+    }
     .login-page {
         padding:0;
     }
@@ -188,6 +212,10 @@ a.nav-right-link:hover {
 @media ( max-width: 600px ) {
     a.nav-right-link {
         left: 88%;
+    }
+    .bookView {
+        width: 60%;
+        margin-left: 20%;
     }
 }
 
