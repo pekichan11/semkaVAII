@@ -39,7 +39,6 @@
       e.preventDefault();
       console.log("nehe");
       const data = {
-        user_id: $('input[name="user_id"]').val(),
         _token: $('input[name="_token"]').val(),
         book_id: $('input[name="book_id"]').val(),
         text: $('input[name="text"]').val(),
@@ -61,6 +60,7 @@
             komentik.remove();
           }
           $('.comments').prepend(comment);
+          $('input[name="text').val("");
         },
       });
     });
