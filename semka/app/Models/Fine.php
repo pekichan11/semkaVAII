@@ -11,7 +11,8 @@ class Fine extends Model
     use HasFactory;
 
     protected $fillable = [
-        'value'
+        'value',
+        'text'
     ];
 
     public function user() {
