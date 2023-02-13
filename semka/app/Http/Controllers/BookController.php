@@ -47,7 +47,7 @@ class BookController extends Controller
         
         $book->title = $request->get('title');
         $book->plot = $request->get('plot');
-        
+        $book->autor_id = $request->get('autor');
         $file = $request->file('image');
         $filename = date('YmdHi').$file->getClientOriginalName();
         $file->move(public_path('img/books'), $filename);
