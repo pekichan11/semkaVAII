@@ -36,6 +36,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/pokuty">Pokuty</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/autors">Autory</a>
+                </li>
             </ul>
           </div>
         </div>
