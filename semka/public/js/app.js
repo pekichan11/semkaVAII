@@ -2,6 +2,11 @@
     $('#delete-comment').submit(() => {
       return confirm('Are you sure you want to delete this comment');
     });
+    
+    $('#delete-book').submit(() => {
+      return confirm('Are you sure you want to delete this comment');
+    });
+
     const smallX = $('.close');
     smallX.on('click', function(event) {
         event.preventDefault();
@@ -38,9 +43,18 @@
       $('.pop-up').remove();
     });
 
+    $('#delete-fine').on('click',async (e) => { 
+      e.preventDefault();
+      const fine_id = e.target.href.substring(22,23);
+      
+      const response = await fetch(`http://localhost:8000/deleteFine/${fine_id}`);
+      const data = await response.json();
+      e.target.parentElement.parentElement.remove();
+    });
+
+
     $("#comment").on('click', (e) => {
       e.preventDefault();
-      console.log("nehe");
       const data = {
         _token: $('input[name="_token"]').val(),
         book_id: $('input[name="book_id"]').val(),
@@ -53,6 +67,7 @@
         success: (res) => {
           const date = new Date(res.updated_at);
           const dataForComment = {
+            id: res.id,
             date: date,
             text: res.text,
             user_name: res.user_name,
@@ -86,6 +101,7 @@
         for (let index = e.target.text * 3 - 3; index < data.length; index++) {
           const date = new Date(data[index].updated_at);
             const dataForComment = {
+              id: data[index].id,
               date: date,
               text: data[index].text,
               user_name: data[index].user_name,
@@ -112,6 +128,8 @@
             String(data.date.getHours()).padStart(2, '0') + ':' + String(data.date.getMinutes()).padStart(2, '0');
       let comment = $('<div class="card border-info mb-3 comment"></div>');
       let cardHeader = $('<div class="card-header">' + stringDate +  '</div>');
+      let span = $(' <span class="float-right"><a href="/editComment/' + data.id + '"><img src="http://localhost:8000/img/pencil.png" alt="" width="30" height="30"></a></span>')
+      cardHeader.append(span);
       cardHeader.appendTo(comment);
       let commentBody = $('<div class="card-body"></div>');
       $('<p class="card-text">' + data.user_name + '</p>').appendTo(commentBody);
