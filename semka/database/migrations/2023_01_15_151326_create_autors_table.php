@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('autors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->date('birthdate');
+            $table->string('img');
+            $table->string('info');
             $table->timestamps();
         });
     }

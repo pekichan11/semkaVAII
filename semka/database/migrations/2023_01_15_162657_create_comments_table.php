@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreignIdFor(User::class);
             $table->foreignIdFor(Book::class);
             $table->string('text', 500);
+            $table->string('user_name');
             $table->timestamps();
         });
     }
