@@ -13,7 +13,16 @@
 <div class="comments">
     @for ($i = intval(count($comments)) - 1; $i > intval(count($comments) - 4) && $i >= 0; $i--)
     <div class="card border-info mb-3 comment">
-        <div class="card-header">{{ date("m.d H:i",strtotime($comments[$i]['created_at'])) }}</div>
+        <div class="card-header">{{ date("m.d H:i",strtotime($comments[$i]['created_at'])) }} 
+            @if (Auth::user()->id === $comments[$i]['user_id'])
+            <span class="float-right">
+                <a href="/editComment/{{$comments[$i]['id']}}">
+                    <img src="{{asset('img/pencil.png')}}" alt="" width="30" height="30">
+                </a>
+                
+            </span>
+            @endif
+        </div>
         <div class="card-body">
             <p class="card-text">{{ $comments[$i]['user_name'] }}</p>
             <h4 class="card-title">{{ $comments[$i]['text'] }}</h4>
