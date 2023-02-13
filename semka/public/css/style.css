@@ -185,15 +185,46 @@ a.nav-right-link:hover {
     text-align: center;
 }
 
+footer {
+    background-color: #073642;
+}
+
+.footer-logo img{
+    margin-left: 10%;
+    width: 600px;
+}
+footer ul li {
+    display: inline;
+    padding-left: 25px
+}
+
+footer ul li a {
+    text-decoration: none;
+}
+footer ul {
+    margin: 0 25%;
+}
 @media ( max-width: 1300px ) {
     .bookView {
         width: 25%;
+    }
+    .footer-logo {
+        width: 500px;
+        margin-left: 10%;
+    }
+
+    footer ul {
+        margin: 0px 15%;
     }
 }
 
 @media ( max-width: 1000px ) {
     a.nav-right-link {
         left: 92%;
+    }
+    .footer-logo img {
+        margin-left: 10%;
+        width: 500px;
     }
 
     .bookView {
@@ -207,6 +238,12 @@ a.nav-right-link:hover {
     .login-logo {
         height: 100px;
     }
+    footer ul li {
+        padding-left: 10px
+    }
+    footer ul {
+        margin: 0 5%;
+    }
 }
 
 @media ( max-width: 600px ) {
@@ -217,10 +254,28 @@ a.nav-right-link:hover {
         width: 60%;
         margin-left: 20%;
     }
+    .footer-logo img{
+        margin-left: 0%;
+        width: 400px;
+    }
+
+    footer ul li {
+        display: block;
+        padding-left: 10px
+    }
+    footer ul {
+        margin-left: 30%;
+    }
 }
 
 @media ( max-width: 500px ) {
     .welcome-img-left img, .welcome-img-right img {
         width: 400px;
     }
+    .footer-logo img{
+        margin-left: 0%;
+        width: 300px;
+    }
+
+   
 }
