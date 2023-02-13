@@ -53,13 +53,12 @@ class BookController extends Controller
         $file->move(public_path('img/books'), $filename);
         $book->img = $filename;
         $book->save();
-        $books = Book::all();
         if($request->get('id')) {
             session(['info' => 'Book was edited']);
-            return view('pages.books', ['books' => $books]);
+            return redirect('/book');
         } else {
             session(['success' => 'new book']);
-            return view('pages.books', ['books' => $books]);
+            return redirect('/book');
         }
     }
 
