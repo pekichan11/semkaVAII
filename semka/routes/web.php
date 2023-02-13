@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AutorController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FineController;
@@ -61,6 +62,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/pozicaj/{id}', [BookController::class, ]);
 
     Route::get('/pokuty', [FineController::class, 'show']);
+
+    Route::get('/autor/{id}', [AutorController::class, 'getAutorById']);
 });
 
 
