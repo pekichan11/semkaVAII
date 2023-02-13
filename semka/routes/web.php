@@ -48,18 +48,15 @@ Route::middleware('auth')->group(function () {
         return view('pages.editForm');
     });
 
-
-    Route::get('/pozicaj/{id}', [BookController::class, ]);
     Route::get('/book/{id}', [BookController::class, 'show']) ;
     Route::get('/book', [BookController::class, 'getAllBooks']);
     Route::post('/addBook', [BookController::class, 'addBook']);
-    Route::get('/delete/{id}', [BookController::class, 'deleteBook'])->name('delete');
+    Route::post('/delete', [BookController::class, 'deleteBook'])->name('vymaz');
     Route::get('/editbook/{id}', [BookController::class, 'editBook']);
     
     Route::get('/user/getName/{id}', [UserController::class, 'getUserById']);
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
     
-
     Route::post('/addComment', [CommentController::class, 'store'])->name('comment');
     Route::get('/getComments/{id}', [CommentController::class, 'getCommetsByBookId']);
     Route::get('/editComment/{id}', [CommentController::class, 'show']);
@@ -70,8 +67,16 @@ Route::middleware('auth')->group(function () {
     Route::post('/pozicaj', [LoanController::class, 'pozicajKnihu'])->name('pozicaj');
 
     Route::get('/pokuty', [FineController::class, 'show']);
+    Route::get('/pokutuj/{user_id}', [FineController::class, 'formWithUserId']);
+    Route::post('/createPokuta', [FineController::class, 'store'])->name('createFine');
+    Route::get('/deleteFine/{id}', [FineController::class, 'destroy']);
 
     Route::get('/autor/{id}', [AutorController::class, 'getAutorById']);
+    Route::get('/addAutor', function()  {
+        return view('pages.editAutor');
+    });
+    Route::post('/addAutor', [AutorController::class, 'store']);
+    Route::get('/autors', [AutorController::class, 'getAll']);
 });
 
 
