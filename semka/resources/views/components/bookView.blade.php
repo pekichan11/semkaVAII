@@ -1,7 +1,7 @@
 <div class="bookView">
-    <div class="img">
+    <a href="#" class="img">
         <img src="{{ asset('img/books')."/".$book['img'] }}" alt="">
-    </div>
+    </a>
     <h3>{{ $book['title'] }}</h3>
     <p><?php 
         if (strlen($book->plot) > 20) {
@@ -13,5 +13,4 @@
         echo $text;
     ?></p>
     <a href="/book/{{ $book['id'] }}" class="btn btn-info">viac</a>
-    <a href="#" class="btn btn-success">pozicaj</a>
 </div>
