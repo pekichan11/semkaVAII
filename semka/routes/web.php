@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookController;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AutorController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\CommentController;
@@ -30,12 +29,12 @@ Route::get('/register', function() {
     return view('pages.auth.register');
 })->name("register");
 
-Route::post('/register', [AuthController::class, 'store']);
+Route::post('/register', [UserController::class, 'store']);
 Route::get('/login', function() {
     return view('pages.auth.login');
 })->name('login');
 
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [UserController::class, 'login']);
 
 
 
@@ -48,7 +47,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/book', [BookController::class, 'getAllBooks']);
     Route::post('/addBook', [BookController::class, 'addBook']);
     Route::get('/delete/{id}', [BookController::class, 'deleteBook'])->name('delete');
-    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/logout', [UserController::class, 'logout'])->name('logout');
     Route::get('/editbook/{id}', [BookController::class, 'editBook']);
     Route::get('/add', function() {
         return view('pages.editForm');
