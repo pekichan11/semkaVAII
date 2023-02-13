@@ -5,7 +5,6 @@
     @csrf
     <input type="hidden" name="user_name" value="{{Auth::user()->name }}">
     <input type="hidden" name="book_id" value="{{ $book['id'] }}">
-    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
     <input type="text" name="text" class="form-control mb-3" required>
 
     <button type="submit" class="btn btn-success" id="comment">submit</button>
