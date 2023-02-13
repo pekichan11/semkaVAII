@@ -16,6 +16,14 @@
 }
 
 
+.forms form {
+    display:inline;
+}
+
+.forms {
+    margin: 10px;
+    margin-bottom: 30px;
+}
 
 .pop-up {
     position: fixed;
@@ -185,7 +193,13 @@ a.nav-right-link:hover {
     text-align: center;
 }
 
+main {
+    margin-bottom: 80px;
+    min-height: 420px;
+}
+
 footer {
+    padding-top: 50px;
     background-color: #073642;
 }
 
