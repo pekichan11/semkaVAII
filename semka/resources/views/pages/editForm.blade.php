@@ -1,5 +1,9 @@
 @extends('master')
+<?php
+    use App\Models\Autor;
 
+    $autors = Autor::All();
+?>
 
   
 @section('title', 'Book forse')
@@ -22,11 +26,21 @@
 
         <div class="form-group">
             <label for="plot" class="form-label mt-4">Plot</label>
-            <input type="text" name="plot" id="plot" class="form-control" placeholder="plot" 
+            <textarea type="text" rows="5" cols="100" name="plot" id="plot" class="form-control" placeholder="plot" 
                 @if (isset($book)) 
                     value="{{$book['plot'] }}"
                 @endif
-            >
+            ></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="autor" class="form-label mt-4">Autor</label>
+            <select name="autor" id="autor">
+                    <option value="null"></option>
+                @foreach ($autors as $autor)
+                    <option value="{{$autor['id']}}">{{$autor['name']}}</option>
+                @endforeach
+            </select>
         </div>
 
         <div class="form-group">
