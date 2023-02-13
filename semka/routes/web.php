@@ -6,6 +6,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\FineController;
 
 
 
@@ -36,6 +37,7 @@ Route::get('/login', function() {
 Route::post('/login', [AuthController::class, 'login']);
 
 
+
 Route::get('/', function() {
     return view('pages.welcome');
 })->name("welcome");
@@ -52,7 +54,13 @@ Route::middleware('auth')->group(function () {
     });
     Route::get('/pozicky', [LoanController::class, 'getAll']);
     Route::post('/addComment', [CommentController::class, 'store'])->name('comment');
-    Route::get('/nehe/{id}/{page}', [CommentController::class, 'getThreeComments']);
+    Route::get('/getComments/{id}', [CommentController::class, 'getCommetsByBookId']);
+    Route::get('/user/getName/{id}', [UserController::class, 'getUserById']);
+
+    Route::post('/pozicaj', [LoanController::class, 'pozicajKnihu'])->name('pozicaj');
+    Route::get('/pozicaj/{id}', [BookController::class, ]);
+
+    Route::get('/pokuty', [FineController::class, 'show']);
 });
 
 
