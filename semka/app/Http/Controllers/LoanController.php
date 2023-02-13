@@ -14,4 +14,12 @@ class LoanController extends Controller
         $loans = Loan::where('user_id', $user_id)->get();
         return view('pages.pozicane', ['loans' => $loans]);
     }
+
+    public function pozicajKnihu(Request $request) {
+        $loan = new Loan();
+        $loan->book_id = $request->get('book_id');
+        $loan->user_id = Auth::user()->id;
+        $loan->save();
+        return redirect('/book');
+    }
 }
